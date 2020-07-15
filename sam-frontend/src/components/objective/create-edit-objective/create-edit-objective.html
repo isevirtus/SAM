@@ -1,0 +1,82 @@
+<div class="container">
+    <form>
+        <h2>Objective</h2>
+
+        <div class="form-group">
+            <label for="objective.name">Name</label>
+            <input type="text" class="form-control" id="objective.name" placeholder="Name of the objective"
+                   name="objective.name"
+                   ng-model="objective.name">
+        </div>
+
+        <div class="form-group">
+            <label for="objective.objectOfStudy">Objects Of Study</label>
+            <select class="form-control" id="objective.objectOfStudy" name="objective.objectOfStudy"
+                    ng-model="objective.objectOfStudy">
+                <option>Produto</option>
+                <option>Processo</option>
+                <option>Recurso</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="objective.purpose">Purpose</label>
+            <select class="form-control" id="objective.purpose" name="objective.purpose" ng-model="objective.purpose">
+                <option>Characterization</option>
+                <option>Monitoring</option>
+                <option>Evaluation</option>
+                <option>Prediction</option>
+                <option>Control and Change</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="objective.viewPoint">View Point</label>
+            <input type="text" class="form-control" id="objective.viewPoint" placeholder="View Point"
+                   name="objective.viewPoint"
+                   ng-model="objective.viewPoint">
+        </div>
+
+        <div class="form-group">
+            <label for="objective.qualityFocus">Quality Focus</label>
+            <input type="text" class="form-control" id="objective.qualityFocus" placeholder="Quality Focus"
+                   name="objective.qualityFocus" ng-model="objective.qualityFocus">
+        </div>
+
+        <h2>Select Question</h2>
+        <!-- List Metrics -->
+        <div class="form-group" ng-repeat="question in questions">
+            <input type="checkbox" ng-model="currentQuestion[$index]" ng-change="questionsSetup()"> {{question.question}}
+            <a class="col-md-1 pull-right glyphicon glyphicon-pencil" ui-sref="edit-question({'idQuestion': question.id, 'idProject': idProject, 'idObjective': idObjective})"></a>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <!-- Button -->
+                <div class="form-group">
+                    <div>
+                        <a ng-if="!isEdit" id="createQuestion" ui-sref="create-question({'idProject' : idProject})"
+                           name="createQuestion" class="btn btn-primary">CREATE QUESTION
+                        </a>
+                        <a ng-if="isEdit" id="createQuestionFromEdit" ui-sref="create-question({'idObjective' : idObjective})"
+                           name="createQuestionFromEdit" class="btn btn-primary">CREATE QUESTION
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <!-- Button -->
+                <div class="form-group">
+                    <div>
+                        <button id="saveObjective" ng-if="!isEdit" ng-click="createObjective(objective)"
+                                name="saveObjective" class="btn btn-success">SAVE OBJECTIVE
+                        </button>
+                        <button id="editObjective" ng-if="isEdit" ng-click="editObjective(objective)"
+                                name="saveObjective" class="btn btn-success">EDIT OBJECTIVE
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

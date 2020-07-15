@@ -1,0 +1,41 @@
+<div class="container">
+    <h2>Question Registration</h2>
+
+    <div class="form-group">
+        <label for="question">Question:</label>
+        <input id="question" name="question" placeholder="Enter question" class="form-control input-md" type="text" ng-model="question.question">
+    </div>
+
+    <h2>Select Metrics</h2>
+    <!-- List Metrics -->
+    <div class="form-group" ng-repeat="metric in metrics">
+        <div >
+            <input type="checkbox" ng-model="currentVariationFactors[$index]" ng-change="variationFactorsSetup()"> {{metric.description}}
+            <a class="col-md-2 pull-right glyphicon glyphicon-remove-circle text-danger" ng-click="deleteMetric(metric.id)"></a>
+            <a class="col-md-1 pull-right glyphicon glyphicon-pencil" ui-sref="edit-metric({'idMetric' : metric.id, 'idProject' : idProject, 'idQuestion' : idQuestion, 'idObjective' : idObjective})"></a>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            <!-- Button -->
+            <div class="form-group">
+                <div>
+                    <a id="createMetric" ui-sref="create-metric({'idProject' : idProject, 'idObjective' : idObjective, 'idQuestion' : idQuestion})"
+                       name="createMetric" class="btn btn-primary">CREATE METRIC
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <!-- Save Question -->
+            <div class="form-group">
+                <div >
+                    <button id="btnSaveQuestion" name="btnSaveQuestion" class="btn btn-success" ng-click="saveQuestion(question)">SAVE QUESTION</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

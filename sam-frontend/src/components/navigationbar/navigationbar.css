@@ -1,0 +1,25 @@
+.navigation-bar {
+    padding-left: 350px;
+    position: fixed;
+    border: 1px solid black;
+    background-color: white !important;
+}
+
+.navigation-list-item {
+    display: inline-flex !important;
+    padding: 0 !important;
+}
+
+.navigation-list-item md-icon {
+    margin-right: 10px !important;
+    margin-left: 10px !important;
+    margin-bottom: 16px !important;
+}
+
+.navigation-element {
+    color: black !important;
+}
+
+.navigation-list-item:first-child md-icon {
+    display: none;
+}

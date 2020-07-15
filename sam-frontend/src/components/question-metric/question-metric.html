@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Questionamentos
+                        <a class="fa fa-plus-circle pull-right" href="#create-question"></a>
+                    </h3>
+                </div>
+                <div id="div1" class="panel-body">
+                    <div id="question{{question.id}}" class="form-group" draggable droppable drop ng-repeat="question in questions">
+                        <li class="list-group-item">{{question.question}}</li>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Métricas
+                        <a class="fa fa-plus-circle pull-right" href="#create-metric"></a>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div id="metric{{metric.id}}" class="form-group" draggable droppable drop ng-repeat="metric in metrics">
+                        <li class="list-group-item">{{metric.name}}</li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt" ng-app="sam" ng-cloak>
+<head>
+    <title>Software Attribute Measurement</title>
+    <meta charset="UTF-8">
+
+    <!-- Material design icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Angular material css-->
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+
+    <!-- Custom css -->
+    <link rel="stylesheet" href="src/components/project/network/network.css">
+    <link rel="stylesheet" href="src/components/question-metric/drag-drop.css">
+    <link rel="stylesheet" href="src/components/sidenav/sidenav.css">
+    <link rel="stylesheet" href="src/components/navigationbar/navigationbar.css">
+    <link rel="stylesheet" href="src/app.css">
+    <link rel="stylesheet" href="src/components/login/login.css">
+    <link rel="stylesheet" href="src/components/toast/toast.css">
+
+
+</head>
+
+<body ng-controller="AppController">
+<div ng-include="'src/components/navigationbar/navigationbar.html'"></div>
+<section layout="row" flex class="layout-row flex" ng-include="'src/components/sidenav/sidenav.html'"></section>
+<!--<div ui-view=""></div>-->
+
+<!-- Angular.js Libraries -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-messages/angular-messages.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angular-translate/angular-translate.js"></script>
+<script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+
+<!--Angular app-->
+<script src="src/app.js"></script>
+
+<!-- Angular material -->
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+
+
+<!-- Cytoscape & graphs lybrary -->
+<script src="assets/lib/cytoscape.js"></script>
+<script src="assets/lib/dagre.js"></script>
+<script src="assets/lib/cytoscape-dagre.js"></script>
+
+<!--Angular app-->
+<script src="src/app.js"></script>
+
+<!--Config-->
+<script src="src/config/routeConfig.js"></script>
+<script src="src/config/interceptor.js"></script>
+
+<!--Controllers-->
+<script src="src/components/app.controller.js"></script>
+<script src="src/components/login/login.controller.js"></script>
+<script src="src/components/project/list-projects/list-projects.controller.js"></script>
+<script src="src/components/project/network/network.controller.js"></script>
+<script src="src/components/project/create-edit-project/create-edit-project.controller.js"></script>
+<script src="src/components/project/principal-project/principal-project.controller.js"></script>
+<script src="src/components/metric/create-edit-metric/create-edit-metric.js"></script>
+<script src="src/components/metric/list-metrics/list-metrics.controller.js"></script>
+<script src="src/components/question/create-edit-question/create-edit-question.controller.js"></script>
+<script src="src/components/question/list-questions/list-questions.controller.js"></script>
+<script src="src/components/objective/list-objectives/list-objectives.controller.js"></script>
+<script src="src/components/objective/create-edit-objective/create-edit-objective.controller.js"></script>
+<script src="src/components/question-metric/question-metric.controller.js"></script>
+<script src="src/components/metric/create-edit-metric/create-edit-metric.js"></script>
+<script src="src/components/metric/list-metrics/list-metrics.controller.js"></script>
+<script src="src/components/question/create-edit-question/create-edit-question.controller.js"></script>
+<script src="src/components/question/list-questions/list-questions.controller.js"></script>
+<script src="src/components/sidenav/sidenav.controller.js"></script>
+
+<!-- Services -->
+<script src="src/components/services/objective.factory.js"></script>
+<script src="src/components/services/project.factory.js"></script>
+<script src="src/components/services/metric.factory.js"></script>
+<script src="src/components/services/question.factory.js"></script>
+<script src="src/components/services/network.factory.js"></script>
+
+<!-- Directives -->
+<script src="src/components/question-metric/directives/drag-drop.directive.js"></script>
+
+<!-- Shared-services-->
+<script src="src/values/connection.value.js"></script>
+<script src="src/config/translation.config.js"></script>
+
+<!-- Directives -->
+
+<!-- Filters -->
+<script src="src/filters/capitalize.filter.js"></script>
+</body>
+</html>

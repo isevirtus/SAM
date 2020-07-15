@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                Metrics
+                <a class="fa fa-plus-circle pull-right" href="#create-metric"></a>
+            </h3>
+        </div>
+        <ul class="list-group" ng-repeat="metric in metrics">
+            <li class="list-group-item">
+                <div class="row toggle" id="dropdown-detail-{{$index+1}}" data-toggle="detail-{{$index+1}}">
+                    <div class="col-xs-10">
+                        {{metric.name}}
+                    </div>
+                    <div class="col-xs-2"><i data-toggle="collapse" href="#detail-{{$index+1}}" class="fa fa-chevron-down pull-right"></i></div>
+                </div>
+                <div class="panel-collapse collapse" id="detail-{{$index+1}}">
+                    <hr></hr>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p>Name: {{metric.name}}</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p>Description: {{metric.description}} </p>
+                            </div>
+                            <div class="col-md-4">
+                                <p>Base line hypothesis: {{metric.baselineHypothesis}}</p>
+                            </div>
+                        </div>
+
+                        <label>Registered Variation Factors:</label>
+                        <div class="form-group" ng-repeat="metric in metrics">
+                            <input type="checkbox" ng-model="currentVariationFactors[$index]"> {{metric.description}}
+                        </div>
+
+                    </div>
+                    <div>
+                        <div ng-repeat="objective in project.objectives">
+                            <h4>{{objective.viewPoint}}</h4>
+                            <h4>{{objective.qualityFocus}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+

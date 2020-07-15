@@ -1,0 +1,1 @@
+angular.module("sam", ['ui.router', 'ngMessages', 'pascalprecht.translate', 'ngSanitize', 'ngMaterial']);

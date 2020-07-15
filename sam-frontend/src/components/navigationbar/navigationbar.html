@@ -1,0 +1,12 @@
+<md-toolbar layout="row" class="md-hue-2 navigation-bar">
+    <div class="md-toolbar-tools">
+        <md-list>
+            <md-list-item ng-repeat="element in navigationElements" class="navigation-list-item">
+                <md-icon class="navigation-element">keyboard_arrow_right</md-icon>
+                <a class="navigation-element" ng-if="element.stateName"
+                   ui-sref="{{element.stateName}}({{element.params}})">{{element.viewName | translate | capitalize}}</a>
+                <p class="navigation-element" ng-if="!element.stateName">{{element.viewName | translate | capitalize}}</p>
+            </md-list-item>
+        </md-list>
+    </div>
+</md-toolbar>

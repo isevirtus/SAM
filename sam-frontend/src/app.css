@@ -1,0 +1,35 @@
+a {
+    text-decoration: none !important;
+    font-weight: 400;
+    -webkit-transition: border-bottom 0.35s;
+    transition: border-bottom 0.35s;
+}
+
+a:-webkit-any-link {
+    color: black;
+    cursor: auto;
+    text-decoration: underline;
+}
+
+span, p{
+    color: black;
+}
+
+md-icon svg{
+    fill: inherit;
+}
+
+.reset-btn {
+    width: 3em;
+    margin: 0.5em;
+    position: absolute;
+    z-index: 1;
+}
+
+#cy {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index:  0;
+    background: #b6b9bf;
+}

@@ -1,0 +1,163 @@
+<div layout="column" ng-cloak class="md-inline-form">
+
+    <div class="row toggle">
+        <div class="col-xs-10">
+            <h2 translate>ENVIRONMENT_CHARACTERIZATION</h2>
+        </div>
+
+        <md-button ng-if="showEditBtn" id="projectEdit" ng-click="setEnableEdit(true)" name="projectEdit" class="md-raised md-primary">Editar</md-button>
+
+    </div>
+    <md-content layout-padding>
+        <div >
+            <form name="CreateProjectController.ProjectForm">
+
+                <!-- ENVIRONMENT_CHARACTERIZATION -->
+                <!-- NAME -->
+                <div layout-gt-xs="row">
+                    <md-input-container class="md-block" flex-gt-xs>
+                        <input type="text" id="name" placeholder="{{'PROJECT_ID' | translate}}" name="name" ng-model="project.name" ng-disabled="!isEditEnabled" ng-maxlength="20" required>
+                        <ng-messages for="CreateProjectController.ProjectForm.name.$error" ng-show="CreateProjectController.ProjectForm.name.$dirty" multiple>
+                            <ng-message when="required" translate>REQUIRED_FIELD</ng-message>
+                            <ng-message when="maxlength" translate>PROJECT_NAME_MAX_LENGTH_EXCEEDED</ng-message>
+                        </ng-messages>
+                    </md-input-container>
+                </div>
+
+                <!-- FUNCTION -->
+                <div>
+                    <md-input-container class="md-block" flex-gt-xs>
+                        <input type="text"  id="function" placeholder="{{'PROJECT_FUNCTION' | translate}}" name="function" required ng-model="project.function" ng-disabled="!isEditEnabled">
+                        <ng-messages for="CreateProjectController.ProjectForm.function.$error" ng-show="CreateProjectController.ProjectForm.function.$dirty" multiple>
+                            <ng-message when="required" translate>REQUIRED_FIELD</ng-message>
+                        </ng-messages>
+                    </md-input-container>
+                </div>
+
+                <!-- EXPERIENCE TIME -->
+                <div layout-gt-xs="row">
+
+                    <md-input-container class="md-block" flex-gt-xs>
+                        <input type="number" class="form-control" id="experienceTime" placeholder="{{'PROJECT_FUNCTIONEXP' | translate}}" min="0" name="experienceTime" required ng-model="project.experienceTime" ng-disabled="!isEditEnabled">
+                        <ng-messages for="CreateProjectController.ProjectForm.experienceTime.$error" ng-show="CreateProjectController.ProjectForm.experienceTime.$dirty" multiple>
+                            <ng-message when="required" translate>REQUIRED_FIELD</ng-message>
+                            <ng-message when="min" translate>NEGATIVE_VALUE_NOT_ALLOWED</ng-message>
+                        </ng-messages>
+                    </md-input-container>
+
+                    <!-- DURATION-->
+                    <md-input-container class="md-block" flex-gt-xs>
+                        <input type="number" min="0" id="duration" placeholder="{{'PROJECT_TIME' | translate }}" name="duration" ng-model="project.duration" ng-disabled="!isEditEnabled" required>
+                        <ng-messages for="CreateProjectController.ProjectForm.duration.$error" ng-show="CreateProjectController.ProjectForm.duration.$dirty" multiple>
+                            <ng-message when="required" translate>REQUIRED_FIELD</ng-message>
+                            <ng-message when="min" translate>NEGATIVE_VALUE_NOT_ALLOWED</ng-message>
+                        </ng-messages>
+                    </md-input-container>
+
+                </div>
+
+                <!-- AMOUNT OF PEOPLE -->
+                <div >
+                    <md-input-container class="md-block" flex-gt-xs>
+                        <input type="number" min="0" id="amountOfPeople" placeholder="{{'PROJECT_PEOPLEINV' | translate }}" name="amountOfPeople" ng-model="project.amountOfPeople" ng-disabled="!isEditEnabled" required>
+                        <ng-messages for="CreateProjectController.ProjectForm.amountOfPeople.$error" ng-show="CreateProjectController.ProjectForm.amountOfPeople.$dirty" multiple>
+                            <ng-message when="required" translate>REQUIRED_FIELD</ng-message>
+                            <ng-message when="min" translate>NEGATIVE_VALUE_NOT_ALLOWED</ng-message>
+                        </ng-messages>
+                    </md-input-container>
+                </div>
+
+
+
+                <!-- METHODOLOGY -->
+                <div layout-gt-xs="row">
+                    <md-input-container  class="md-block" flex-gt-xs>
+
+                        <md-select id="methodology" name="methodology" ng-model="project.methodology" ng-disabled="!isEditEnabled" placeholder="{{'PROJECT_METODOLY' | translate }}" multiple required>
+                            <md-option  value="{{methodology}}" ng-repeat="methodology in methodologyType">{{methodology}}</md-option >
+                        </md-select>
+
+                    </md-input-container >
+
+                    <!-- PROJECT TYPE -->
+                    <md-input-container class="md-block" flex-gt-xs>
+
+                        <md-select id="projectType" name="projectType" ng-model="project.projectType" ng-disabled="!isEditEnabled" placeholder="{{'PROJECT_TYPE' | translate }}" required>
+                            <md-option  value="{{projectType.name}}" ng-repeat="projectType in projectType">{{projectType.name}}</md-option >
+                        </md-select>
+
+                    </md-input-container>
+                </div>
+                <!-- ENVIRONMENT_CHARACTERIZATION FINISH-->
+
+                <div layout-gt-sm="row" flex="">
+                    <div flex="50">
+                        <h2 translate>ENVIRONMENT_CHARACTERIZATION</h2>
+                    </div>
+                    <div flex="50">
+                        <md-button class="md-raised md-primary" ng-click="addObjective()" style="min-width: 200px; min-height: 50px" >NOVO OBJETIVO</md-button>
+                    </div>
+                </div>
+                <!-- OBJECTIVE_OF_STUDY/PURPOSE -->
+                <div ng-repeat="objective in project.objectives">
+                    <div layout-gt-xs="row" >
+
+                        <!-- OBJECTIVE_OF_STUDY -->
+                        <md-input-container  class="md-block" flex-gt-xs>
+
+                            <md-select id="objectOfStudy" name="objectOfStudy" ng-model="objective.objectOfStudy" ng-disabled="!isEditEnabled" placeholder="{{'OBJECTIVE_OF_STUDY' | translate }}" required>
+                                <md-option  value="{{objectOfStudy}}" ng-repeat="objectOfStudy in objectsOfStudy">{{objectOfStudy}}</md-option >
+                            </md-select>
+
+                        </md-input-container >
+
+                        <!-- PURPOSE -->
+                        <md-input-container class="md-block" flex-gt-xs>
+
+                            <md-select id="purpose" name="purpose" ng-model="objective.purpose" ng-disabled="!isEditEnabled" placeholder="{{'OBJECTIVE_PURPOSE' | translate }}" required>
+                                <md-option  value="{{purpose}}" ng-repeat="purpose in purposes">{{purpose}}</md-option >
+                            </md-select>
+
+                        </md-input-container>
+                    </div>
+
+                    <!-- QUALITY_FOCUS -->
+                    <div>
+                        <md-input-container class="md-block" flex-gt-xs>
+                            <input type="text"  id="qualityFocus" placeholder="{{'QUALITY_FOCUS' | translate}}" name="qualityFocus" required ng-model="objective.qualityFocus" ng-disabled="!isEditEnabled">
+                            <ng-messages for="CreateProjectController.ProjectForm.qualityFocus.$error" ng-show="CreateProjectController.ProjectForm.qualityFocus.$dirty" multiple>
+                                <ng-message when="required" translate>REQUIRED_FIELD</ng-message>
+                            </ng-messages>
+                        </md-input-container>
+                    </div>
+
+                    <!-- View Point/Context -->
+                    <div layout-gt-xs="row">
+                        <!-- View Point -->
+                        <md-input-container  class="md-block" flex-gt-xs>
+
+                            <input type="text"  id="viewPoint" placeholder="{{'VIEW_POINT' | translate}}" name="viewPoint" required ng-model="objective.viewPoint" ng-disabled="!isEditEnabled">
+                            <ng-messages for="CreateProjectController.ProjectForm.viewPoint.$error" ng-show="CreateProjectController.ProjectForm.viewPoint.$dirty" multiple>
+                                <ng-message when="required" translate>REQUIRED_FIELD</ng-message>
+                            </ng-messages>
+
+                        </md-input-container >
+
+                        <!-- Context -->
+                        <md-input-container class="md-block" flex-gt-xs>
+
+                            <input type="text"  id="context" placeholder="{{'CONTEXT' | translate}}" name="context" required ng-model="objective.context" ng-disabled="!isEditEnabled">
+                            <ng-messages for="CreateProjectController.ProjectForm.context.$error" ng-show="CreateProjectController.ProjectForm.context.$dirty" multiple>
+                                <ng-message when="required" translate>REQUIRED_FIELD</ng-message>
+                            </ng-messages>
+
+                        </md-input-container>
+                    </div>
+                </div>
+                <!-- Button -->
+                <md-button class="md-raised md-primary md-button" id="btnSaveProject" ng-if="isEditEnabled && !showEditBtn" ng-click="createProject(project)">Salvar</md-button>
+                <md-button class="md-raised md-primary md-button" id="btnUpdateProject" ng-disabled="!isEditEnabled" ng-if="showEditBtn" ng-click="editProject(project)">Atualizar</md-button>
+            </form>
+        </div>
+    </md-content>
+</div>

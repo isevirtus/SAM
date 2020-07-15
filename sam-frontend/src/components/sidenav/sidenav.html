@@ -1,0 +1,50 @@
+<div ng-controller="SidenavController">
+    <md-sidenav class="sidenav-container md-sidenav-left md-closed ng-i
+solate-scope _md md-locked-open md-whiteframe-4dp"
+                md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4" tabindex="-1" md-colors="::{background: 'grey-500'}">
+        <img src="img/images.png" alt="Logotipo da aplicação" aria-label="Logotipo da aplicação">
+        <h1 layout="row" class="md-title layout-align" layout-align="center">SAM</h1>
+        <md-content class="ng-scope _md">
+            <md-list flex md-colors="::{background: 'grey-500'}">
+                <md-list-item>
+                    <md-list flex>
+                        <md-list-item ng-click="toggle.projectList = !toggle.projectList">
+                            <a href="#">
+                                <span translate>SELECTION</span>
+                                <md-icon>expand_more</md-icon>
+                            </a>
+                        </md-list-item>
+                        <md-list-item ng-repeat="project in projects" ng-show="toggle.projectList">
+                            <span flex-offset="5">
+                                <a ui-sref="principal-project({idProject : {{project.id}}})">{{project.name | capitalize | limitTo:10}}</a>
+                            </span>
+                        </md-list-item>
+                        <md-list-item ng-show="toggle.projectList">
+                            <span flex-offset="5">
+                                <a ui-sref="create-project">
+                                    <md-icon class="icon-size-18">my_library_add</md-icon>
+                                    <span translate>ADD_PROJECT</span>
+                                </a>
+                            </span>
+                        </md-list-item>
+                    </md-list>
+                </md-list-item>
+                <md-list-item>
+                    <a href="#" translate>VALIDATION</a>
+                </md-list-item>
+                <md-list-item>
+                    <a href="#" translate>THRESHOLDS</a>
+                </md-list-item>
+                <md-list-item>
+                    <a href="#" translate>CONFIDENCE</a>
+                </md-list-item>
+            </md-list>
+        </md-content>
+    </md-sidenav>
+</div>
+<md-content flex="" layout-padding="" class="layout-padding _md flex">
+    <div layout="column" layout-align="top center" class="layout-align-start-center layout-column">
+        <ui-view class="ui-viewSize">
+        </ui-view>
+    </div>
+</md-content>

@@ -1,0 +1,37 @@
+<div>
+    <h2>Objectives</h2>
+    <div class="row">
+        <div class="col-xs-12" style="">
+            <div class="panel panel-default list-group-panel">
+                <div class="panel-body">
+                    <ul class="list-group list-group-header">
+                        <li class="list-group-item list-group-body">
+                            <div class="row">
+                                <div class="col-xs-5 text-left">Name</div>
+                                <div class="col-xs-2">Quality Focus</div>
+                                <div class="col-xs-2">Variation Factors</div>
+                                <div class="col-xs-3"></div>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="list-group list-group-body" style="" ng-repeat="objective in objectives">
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-xs-5 text-left">{{objective.name}}</div>
+                                <div class="col-xs-2" style="">{{objective.qualityFocus}}</div>
+                                <div class="col-xs-2" style="">{{objective.variationFactors}}</div>
+                                <div class="col-xs-3">
+                                    <button id="editObjective" ng-click="goTo(list-questions)" name="editObjective" class="btn btn-success">Create Question</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

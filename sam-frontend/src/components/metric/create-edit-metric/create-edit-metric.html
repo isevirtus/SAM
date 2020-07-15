@@ -1,0 +1,38 @@
+<div class="container">
+
+    <h2>Metric Registration</h2>
+    <form>
+
+        <!-- Description input-->
+        <div class="form-group">
+            <label  for="name">Name:</label>
+            <input id="name" name="description" placeholder="Enter name" class="form-control input-md" type="text" ng-model="currentMetric.name">
+
+        </div>
+
+
+        <!-- Description input-->
+        <div class="form-group">
+            <label  for="description">Description:</label>
+            <input id="description" name="description" placeholder="Enter Description" class="form-control input-md" type="text" ng-model="currentMetric.description">
+
+        </div>
+
+        <!-- Description input-->
+        <div class="form-group">
+            <label  for="baselineHypothesis">Base line hypothesis:</label>
+            <input id="baselineHypothesis" name="baselineHypothesis" placeholder="Enter Base line Hypothesis" class="form-control input-md" type="text" ng-model="currentMetric.baselineHypothesis">
+
+        </div>
+
+        <!-- Save metric -->
+        <div class="form-group">
+            <div >
+                <button id="saveMetric" name="saveMetric" class="btn btn-success" ng-click="saveMetric(currentMetric)">SAVE METRIC</button>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+

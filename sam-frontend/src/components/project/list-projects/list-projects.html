@@ -1,0 +1,127 @@
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">|
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                Projects
+                <a class="fa fa-plus-circle pull-right" ui-sref="create-project"></a>
+            </h3>
+        </div>
+        <ul class="list-group" ng-repeat="project in projects">
+            <li class="list-group-item">
+                <div class="row toggle" id="dropdown-detail-{{$index+1}}" data-toggle="detail-{{$index+1}}">
+                    <div class="col-xs-10">
+                        {{project.name}}
+                    </div>
+                    <div class="col-xs-2"><i data-toggle="collapse" href="#detail-{{$index+1}}"
+                                             class="fa fa-chevron-down pull-right"></i></div>
+                </div>
+                <div class="panel-collapse collapse" id="detail-{{$index+1}}">
+                    <hr/>
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p>Methodology: {{project.methodology}}</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p>Experience Time: {{project.experienceTime}} </p>
+                            </div>
+                            <div class="col-md-3">
+                                <a class="col-md-2 pull-right glyphicon glyphicon-remove-circle text-danger" data-toggle="tooltip" title="Remove" data-toggle="modal" data-target="#deleteProjectModal"></a>
+
+                                <!-- Modal -->
+                                <div id="deleteProjectModal" class="modal fade" role="dialog">
+                                    <div class="modal-dialog modal-sm">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Are you sure that you want delete the project {{project.name}}?</h4>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="deleteProject(project.id)">Delete</button>
+                                                <button type="button"  class="btn btn-default" ui-sref="principal-project({idProject: {{project.id}}})" data-dismiss="modal">Cancel</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="col-md-1 pull-right glyphicon glyphicon-tasks" data-toggle="tooltip" title="ViewQuestionsMetrics" href="#view-question-metric"></a>
+                                <a class="col-md-1 pull-right glyphicon glyphicon-pencil" data-toggle="tooltip" title="Edit" href="#edit-project/{{project.id}}"></a>
+                            </div>
+                            <div class="col-md-4">
+                                <p>Function: {{project.function}}</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p>Duration: {{project.duration}}</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p>Project Type: {{project.projectType}}</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p>Name: {{project.name}}</p>
+                            </div>
+                            <div>
+                                <a id="create-objective" name="create-objective" class="btn btn-primary"
+                                   ui-sref="create-objective({idProject: {{project.id}}})">CREATE OBJECTIVE</a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 ng-show="project.objectives">Objectives</h3>
+                    <div ng-show="project.objectives" class="row">
+                        <div class="col-xs-12" style="">
+                            <div class="panel panel-default list-group-panel">
+                                <div class="panel-body">
+                                    <ul class="list-group list-group-header">
+                                        <li class="list-group-item list-group-body">
+                                            <div class="row">
+                                                <div class="col-xs-2 text-left"><strong>Name</strong></div>
+                                                <div class="col-xs-2"><strong>Object of Study</strong></div>
+                                                <div class="col-xs-2"><strong>Purpose</strong></div>
+                                                <div class="col-xs-2"><strong>View Point</strong></div>
+                                                <div class="col-xs-3"><strong>Quality Focus</strong></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <ul class="list-group list-group-body" ng-repeat="objective in project.objectives">
+                                        <li class="list-group-item">
+                                            <div class="row">
+                                                <div class="col-xs-2 text-left">{{objective.name}}</div>
+                                                <div class="col-xs-2 ">{{objective.objectOfStudy}}</div>
+                                                <div class="col-xs-2" style="">{{objective.purpose}}</div>
+                                                <div class="col-xs-2" style="">{{objective.viewPoint}}</div>
+                                                <div class="col-xs-2" style="">{{objective.qualityFocus}}</div>
+                                                <div class="col-xs-2">
+                                                    <a class="col-md-2 pull-right glyphicon glyphicon-remove-circle text-danger" data-toggle="tooltip" title="Remove" data-toggle="modal" data-target="#deleteObjectiveModal" ></a>
+
+                                                    <!-- Modal -->
+                                                    <div id="deleteObjectiveModal" class="modal fade" role="dialog">
+                                                        <div class="modal-dialog modal-sm">
+                                                            <!-- Modal content-->
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                    <h4 class="modal-title">Are you sure that you want delete this Objective?</h4>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="deleteObjective(objective.id,project.id)">Delete</button>
+                                                                    <button type="button" class="btn btn-default" data-dismiss="modal" ui-sref="network({idObjective: {{objective.id}}})">Cancel</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <a class="col-md-1 pull-right glyphicon glyphicon glyphicon-eye-open" ui-sref="network({idObjective: {{objective.id}}})" data-toggle="tooltip" title="View Bayesian Network"></a>
+                                                    <a class="col-md-1 pull-right glyphicon glyphicon-pencil" data-toggle="tooltip" title="Edit" href="#edit-objective/{{objective.id}}"></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<div layout="column" ng-cloak class="md-inline-form">
+    <md-content class="login" layout-padding layout-align="center center">
+        <form name="loginCtrl.loginForm">
+            <div class="form-group text-center">
+                <div class="logo">
+                    <img src="img/images.png" alt="Alternate Text"/>
+                    <br><br/>
+                    <b style="color:#c7c7c7 !important">SAM</b>
+                </div>
+            </div>
+            <div>
+                <md-input-container class="md-block">
+                    <label>E-mail</label>
+                    <input class="form-control"
+                           ng-model="loginCtrl.credentials.email"
+                           type="email"
+                           ng-pattern="/^[a-zA-Z]+\.[a-zA-Z]+@virtus\.ufcg\.edu\.br$/"
+                           ng-required="true"
+                           name="email">
+
+                    <div ng-messages="loginCtrl.loginForm.email.$error" ng-show="loginCtrl.loginForm.email.$dirty">
+                        <div ng-message="required" translate>REQUIRED_FIELD</div>
+                        <div ng-message="pattern" translate>INVALID_EMAIL_FORMAT</div>
+                    </div>
+                </md-input-container>
+            </div>
+            <div>
+                <md-input-container class="md-block">
+                    <label translate>LOGIN_PASSWORD</label>
+                    <input class="form-control"
+                           name="password"
+                           ng-required="true"
+                           ng-model="loginCtrl.credentials.password"
+                           ng-minlength="6"
+                           type="password"
+                           ng-change="deleteError()">
+
+                    <div ng-messages="loginCtrl.loginForm.password.$error" ng-show="loginCtrl.loginForm.password.$dirty">
+                        <div ng-message="required" translate>REQUIRED_FIELD</div>
+                        <div ng-message="minlength" translate>PASSWORD_MIN_LENGTH</div>
+                    </div>
+                </md-input-container>
+            </div>
+
+            <md-button class="md-raised md-primary" ng-disabled="!loginCtrl.loginForm.$valid" translate>LOGIN</md-button>
+        </form>
+        <a href="#">Cadastrar</a>
+
+    </md-content>
+</div>
